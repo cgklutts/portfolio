@@ -3,9 +3,579 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <title>Alex Chen - 3D Artist & Fabricator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            background: radial-gradient(ellipse at center, #2a2a2a 0%, #0a0a0a 100%);
+        }
+
+        .hero-content {
+            text-align: center;
+            z-index: 2;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 300;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b35, #f7931e, #ffd23f);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #cccccc;
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .cta-button {
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border: none;
+            border-radius: 50px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 500;
+            box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
+        }
+
+        .floating-shapes {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape:nth-child(1) {
+            width: 100px;
+            height: 100px;
+            background: #ff6b35;
+            top: 20%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+
+        .shape:nth-child(2) {
+            width: 150px;
+            height: 150px;
+            background: #f7931e;
+            top: 60%;
+            right: 20%;
+            animation-delay: 2s;
+        }
+
+        .shape:nth-child(3) {
+            width: 80px;
+            height: 80px;
+            background: #ffd23f;
+            bottom: 20%;
+            left: 30%;
+            animation-delay: 4s;
+        }
+
+        .nav {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 100;
+            display: flex;
+            gap: 30px;
+        }
+
+        .nav a {
+            color: #cccccc;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav a:hover {
+            color: #ff6b35;
+        }
+
+        .nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: #ff6b35;
+            transition: width 0.3s ease;
+        }
+
+        .nav a:hover::after {
+            width: 100%;
+        }
+
+        .portfolio-grid {
+            padding: 100px 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 80px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 40px;
+            margin-bottom: 100px;
+        }
+
+        .project-card {
+            background: rgba(42, 42, 42, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 300px;
+            background: linear-gradient(45deg, #2a2a2a, #404040);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #888;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+        }
+
+        .project-info {
+            padding: 30px;
+        }
+
+        .project-info h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #ff6b35;
+            font-weight: 400;
+        }
+
+        .project-info p {
+            color: #cccccc;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .tag {
+            padding: 5px 15px;
+            background: rgba(255, 107, 53, 0.2);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: #ff6b35;
+            border: 1px solid rgba(255, 107, 53, 0.3);
+        }
+
+        .about-section {
+            padding: 100px 5%;
+            background: rgba(20, 20, 20, 0.5);
+            backdrop-filter: blur(20px);
+        }
+
+        .about-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.3rem;
+            line-height: 1.8;
+            color: #cccccc;
+            margin-bottom: 30px;
+        }
+
+        .skills {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-top: 50px;
+        }
+
+        .skill {
+            padding: 15px 30px;
+            background: linear-gradient(45deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+            border-radius: 30px;
+            border: 2px solid rgba(255, 107, 53, 0.3);
+            color: #ff6b35;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .skill:hover {
+            background: linear-gradient(45deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));
+            transform: translateY(-5px);
+        }
+
+        .contact-section {
+            padding: 100px 5%;
+            text-align: center;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: #cccccc;
+            font-size: 1.1rem;
+        }
+
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(180deg);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .nav {
+                top: 20px;
+                right: 20px;
+                gap: 20px;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 30px;
+            }
+        }
+    </style>
 </head>
 <body>
-    
+    <nav class="nav">
+        <a href="#portfolio">Portfolio</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <section class="hero">
+        <div class="floating-shapes">
+            <div class="shape"></div>
+            <div class="shape"></div>
+            <div class="shape"></div>
+        </div>
+        <div class="hero-content">
+            <h1>Chris Klutts</h1>
+            <p class="subtitle">3D Artist & Digital Fabricator</p>
+            <a href="#portfolio" class="cta-button">View My Work</a>
+        </div>
+    </section>
+
+    <section id="portfolio" class="portfolio-grid">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="grid">
+
+            <a href="./bust/index.html">
+            <div class="project-card">
+                <div class="project-image">
+                    <img src="./bust/1.jpeg" alt="">
+                </div>
+                <div class="project-info">
+                    <h3>The Golden Stache</h3>
+                    <p>Standing 18 inches tall, this meticulously crafted bust was 3D-printed in seven separate pieces and expertly joined using precision alignment keys. Each joint was bonded, sanded, and painted multiple times to achieve a flawless, seamless finish. Custom internal weights lend the piece a substantial, metallic presence, while the antique gold rub and buff bring a timeless, classical elegance. Sealed with a glossy polyurethane coating, this fusion of modern fabrication and traditional artistry culminates in a striking statement piece—presented to an executive of Wall Street.</p>
+                    <div class="project-tags">
+                        <span class="tag">3DS Max</span>
+                        <span class="tag">V-Ray</span>
+                        <span class="tag">Photoshop</span>
+                    </div>
+                </div>
+            </div>
+            </a>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Sculptural Installation</span>
+                </div>
+                <div class="project-info">
+                    <h3>Kinetic Flow</h3>
+                    <p>A large-scale fabricated sculpture combining digital design with traditional metalworking techniques.</p>
+                    <div class="project-tags">
+                        <span class="tag">Rhino</span>
+                        <span class="tag">Grasshopper</span>
+                        <span class="tag">CNC</span>
+                        <span class="tag">Welding</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Product Design</span>
+                </div>
+                <div class="project-info">
+                    <h3>Parametric Furniture</h3>
+                    <p>Custom furniture pieces designed using parametric modeling and fabricated with precision CNC techniques.</p>
+                    <div class="project-tags">
+                        <span class="tag">Fusion 360</span>
+                        <span class="tag">3D Printing</span>
+                        <span class="tag">Wood</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Character Animation</span>
+                </div>
+                <div class="project-info">
+                    <h3>Digital Creatures</h3>
+                    <p>High-detail character modeling and rigging for animated sequences and interactive media.</p>
+                    <div class="project-tags">
+                        <span class="tag">Maya</span>
+                        <span class="tag">ZBrush</span>
+                        <span class="tag">Substance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Interactive Installation</span>
+                </div>
+                <div class="project-info">
+                    <h3>Digital Mirror</h3>
+                    <p>An interactive art installation combining sensors, projectors, and real-time 3D graphics.</p>
+                    <div class="project-tags">
+                        <span class="tag">Unity</span>
+                        <span class="tag">Arduino</span>
+                        <span class="tag">Kinect</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="project-image">
+                    <span>Prototype Development</span>
+                </div>
+                <div class="project-info">
+                    <h3>Medical Device</h3>
+                    <p>Rapid prototyping and testing of a medical device using advanced 3D printing and finishing techniques.</p>
+                    <div class="project-tags">
+                        <span class="tag">SolidWorks</span>
+                        <span class="tag">SLA Printing</span>
+                        <span class="tag">Post-Processing</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="about-content">
+            <h2 class="section-title">About Me</h2>
+            <p>I'm a passionate 3D artist and digital fabricator with over 8 years of experience bringing ideas to life through cutting-edge technology and traditional craftsmanship.</p>
+            <p>My work spans architectural visualization, product design, interactive installations, and custom fabrication. I believe in the power of merging digital innovation with hands-on making to create meaningful, impactful experiences.</p>
+            
+            <div class="skills">
+                <div class="skill">3D Modeling</div>
+                <div class="skill">Digital Fabrication</div>
+                <div class="skill">CNC Machining</div>
+                <div class="skill">3D Printing</div>
+                <div class="skill">Animation</div>
+                <div class="skill">Rendering</div>
+                <div class="skill">Prototyping</div>
+                <div class="skill">Installation</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Get In Touch</h2>
+        <p style="font-size: 1.2rem; color: #cccccc; margin-bottom: 30px;">Ready to bring your vision to life? Let's collaborate on something amazing.</p>
+        
+        <div class="contact-info">
+            <div class="contact-item">
+                <div class="contact-icon">@</div>
+                <span>alex.chen@studio.com</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📱</div>
+                <span>+1 (555) 123-4567</span>
+            </div>
+            <div class="contact-item">
+                <div class="contact-icon">📍</div>
+                <span>Brooklyn, NY</span>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Project card hover effects
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Parallax effect for floating shapes
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const shapes = document.querySelectorAll('.shape');
+            
+            shapes.forEach((shape, index) => {
+                const speed = (index + 1) * 0.5;
+                shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
+            });
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards and sections
+        document.querySelectorAll('.project-card, .section-title').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(50px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
