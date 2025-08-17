@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -321,6 +322,7 @@
                 opacity: 0;
                 transform: translateY(30px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -328,9 +330,12 @@
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0px) rotate(0deg);
             }
+
             50% {
                 transform: translateY(-20px) rotate(180deg);
             }
@@ -340,22 +345,22 @@
             .hero h1 {
                 font-size: 2.5rem;
             }
-            
+
             .hero .subtitle {
                 font-size: 1.2rem;
             }
-            
+
             .grid {
                 grid-template-columns: 1fr;
                 gap: 30px;
             }
-            
+
             .nav {
                 top: 20px;
                 right: 20px;
                 gap: 20px;
             }
-            
+
             .contact-info {
                 flex-direction: column;
                 gap: 30px;
@@ -363,20 +368,18 @@
         }
     </style>
 </head>
+
 <body class="pop">
     <nav class="nav">
+
         <a href="#portfolio">Portfolio</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
+
     </nav>
 
     <section class="hero">
-        <div class="floating-shapes">
-            <div class="shape"></div>
-            <div class="shape"></div>
-            <div class="shape"></div>
-        </div>
-        <div class="hero-content">
+        <div class="">
             <h1 class="carto" style="font-size:5rem;">Chris Klutts</h1>
             <p class="subtitle pop">3D Artist & Digital Fabricator</p>
             <a href="#portfolio" class="cta-button">View My Work</a>
@@ -387,84 +390,112 @@
         <div class="grid">
 
             <a href="./bust/index.html">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./bust/d.jpeg" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>The Golden Stache</h3>
-                    <p>Standing 18 inches tall, this meticulously crafted bust was 3D-printed in seven separate pieces and expertly joined using precision alignment keys. Each joint was bonded, sanded, and painted multiple times to achieve a flawless, seamless finish. Custom internal weights lend the piece a substantial, metallic presence, while the antique gold rub and buff bring a timeless, classical elegance. Sealed with a glossy polyurethane coating, this fusion of modern fabrication and traditional artistry culminates in a striking statement piece—presented to an executive of Wall Street.</p>
-                    <div class="project-tags">
-                        <span class="tag">Blender</span>
-                        <span class="tag">Bamboo Labs</span>
-                        <span class="tag">Surface Finishing</span>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./bust/d.jpeg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3>The Golden Man</h3>
+                        <p>Standing at 18 inches tall, this bust was meticulously crafted from a mere photo. Modelled &
+                            then 3D-printed in seven separate pieces and expertly joined using precision alignment keys.
+                            Each joint was bonded, sanded, and painted multiple times to achieve a flawless, seamless
+                            finish. Custom internal weights lend the piece a substantial, metallic presence, while the
+                            antique gold rub and buff bring a timeless, classical elegance. Sealed with a glossy
+                            polyurethane coating, this fusion of modern fabrication and traditional artistry culminates
+                            in a striking statement piece—presented to an executive of Wall Street.</p>
+                        <div class="project-tags">
+                            <span class="tag">Blender</span>
+                            <span class="tag">Bamboo Labs</span>
+                            <span class="tag">Surface Finishing</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </a>
 
             <a href="./dino/">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./dino/d.jpeg" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Stevie the Dinosaur</h3>
-                    <p>Crayolla's mascott Stevie. Served as Lead Designer in a three-team collaboration, primarily resposible for the creation of exquisitely detailed eyes for a 4-foot-tall dinosaur. Crafted sophisticated 3D models to precisely guide styrofoam sculpting and structural assembly, ensuring flawless execution and connection. Developed and built electrical systems, including LED light controllers, to imbue the creature with fantasy illumination. Managed cross-disciplinary teams in modeling, fabrication, and electronics to deliver a masterfully realized, museum-quality interactive dinosaur.</p>
-                    <div class="project-tags">
-                        <span class="tag">Blender</span>
-                        <span class="tag">Bamboo Labs</span>
-                        <span class="tag">Electrical Engineering</span>
-                        <span class="tag">LED Controls</span>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./dino/d.jpeg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3>Stevie the Dinosaur</h3>
+                        <p>Crayolla's mascott Stevie. Served as Lead Designer in a three-team collaboration, primarily
+                            resposible for the creation of exquisitely detailed eyes for a 4-foot-tall dinosaur. Crafted
+                            sophisticated 3D models to precisely guide styrofoam sculpting and structural assembly,
+                            ensuring flawless execution and connection. Developed and built electrical systems,
+                            including LED light controllers, to imbue the creature with fantasy illumination. Managed
+                            cross-disciplinary teams in modeling, fabrication, and electronics to deliver a masterfully
+                            realized, museum-quality interactive dinosaur.</p>
+                        <div class="project-tags">
+                            <span class="tag">Blender</span>
+                            <span class="tag">Bamboo Labs</span>
+                            <span class="tag">Electrical Engineering</span>
+                            <span class="tag">LED Controls</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </a>
 
             <a href="./aerospace/">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./aerospace/1.jpeg" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Kea Aerospace</h3>
-                    <p>Served as the lead 3D artist on the visualization of a cutting-edge prototype aerospace shuttle, crafting exquisitely detailed models with engineering precision and sophisticated, photorealistic textures. Designed advanced lighting and rendering schemes to showcase the shuttle’s innovation, elegance, and technological prowess. Produced cinematic-quality renderings that became central to investor presentations, directly contributing to multimillion-dollar funding for its development. This groundbreaking project has since secured a prestigious partnership with NASA, underscoring the impact and visionary quality of the work.</p>
-                    <div class="project-tags">
-                        <span class="tag">Blender</span>
-                        <span class="tag">Substance Painter</span>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./aerospace/1.jpeg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3>Kea Aerospace</h3>
+                        <p>Served as the lead 3D artist on the visualization of a cutting-edge prototype aerospace
+                            shuttle, crafting exquisitely detailed models with engineering precision and sophisticated,
+                            photorealistic textures. Designed advanced lighting and rendering schemes to showcase the
+                            shuttle’s innovation, elegance, and technological prowess. Produced cinematic-quality
+                            renderings that became central to investor presentations, directly contributing to
+                            multimillion-dollar funding for its development. This groundbreaking project has since
+                            secured a prestigious partnership with NASA, underscoring the impact and visionary quality
+                            of the work.</p>
+                        <div class="project-tags">
+                            <span class="tag">Blender</span>
+                            <span class="tag">Substance Painter</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </a>
 
             <a href="./ultimatehockeyfans/">
-            <div class="project-card">
-                <div class="project-image">
-                    <img src="./ultimatehockeyfans/1.jpeg" alt="">
-                </div>
-                <div class="project-info">
-                    <h3>Ultimate Hockey Fans</h3>
-                    <p>Served as lead 3D artist on the design and realization of an exclusive, precision-engineered hockey-themed ceiling fan, meticulously crafted to meet exacting aesthetic and functional standards. Partnered closely with a programmer to integrate a sophisticated, proprietary rendering system, enabling mass production of highly detailed, team-specific variants and dynamic visualization across diverse environments. This transformative collaboration allowed the client to exponentially scale their offerings,compounding annual revenue, and establishing a definitive NHL product library that continues to set the industry standard.</p>
-                    <div class="project-tags">
-                        <span class="tag">Maya</span>
-                        <span class="tag">ZBrush</span>
-                        <span class="tag">Substance</span>
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="./ultimatehockeyfans/1.jpeg" alt="">
+                    </div>
+                    <div class="project-info">
+                        <h3>Ultimate Hockey Fans</h3>
+                        <p>Served as lead 3D artist on the design and realization of an exclusive, precision-engineered
+                            hockey-themed ceiling fan, meticulously crafted to meet exacting aesthetic and functional
+                            standards. Partnered closely with a programmer to integrate a sophisticated, proprietary
+                            rendering system, enabling mass production of highly detailed, team-specific variants and
+                            dynamic visualization across diverse environments. This transformative collaboration allowed
+                            the client to exponentially scale their offerings,compounding annual revenue, and
+                            establishing a definitive NHL product library that continues to set the industry standard.
+                        </p>
+                        <div class="project-tags">
+                            <span class="tag">Blender</span>
+                            <span class="tag">Substance Painter</span>
+                            <span class="tag">Octane</span>
+                        </div>
                     </div>
                 </div>
-            </div>
             </a>
-       
 
-           
+
+
         </div>
     </section>
 
     <section id="about" class="about-section">
         <div class="about-content">
             <h2 class="section-title">About Me</h2>
-            <p>I'm a passionate 3D artist and digital fabricator with over 4 years of experience bringing ideas to life through cutting-edge technology and traditional craftsmanship.</p>
-            <p>My work spans architectural visualization, product design, interactive installations, and custom fabrication. I believe in the power of merging digital innovation with hands-on making to create meaningful, impactful experiences.</p>
-            
+            <p>I'm a passionate 3D artist and digital fabricator with over 4 years of experience bringing ideas to life
+                through cutting-edge technology and traditional craftsmanship.</p>
+            <p>My work spans product design, interactive installations, and custom fabrication. I believe in the power
+                of merging digital innovation with hands-on making to create meaningful, impactful experiences.</p>
+
             <div class="skills">
                 <div class="skill">3D Modeling</div>
                 <div class="skill">Digital Fabrication</div>
@@ -478,8 +509,9 @@
 
     <section id="contact" class="contact-section">
         <h2 class="section-title">Get In Touch</h2>
-        <p style="font-size: 1.2rem; color: #cccccc; margin-bottom: 30px;">Ready to bring your vision to life? Let's collaborate on something amazing.</p>
-        
+        <p style="font-size: 1.2rem; color: #cccccc; margin-bottom: 30px;">Ready to bring your vision to life? Let's
+            collaborate on something amazing.</p>
+
         <div class="contact-info">
             <div class="contact-item">
                 <div class="contact-icon">@</div>
@@ -509,20 +541,20 @@
 
         // Project card hover effects
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
+            card.addEventListener('mouseenter', function () {
                 this.style.transform = 'translateY(-10px) scale(1.02)';
             });
-            
-            card.addEventListener('mouseleave', function() {
+
+            card.addEventListener('mouseleave', function () {
                 this.style.transform = 'translateY(0) scale(1)';
             });
         });
 
         // Parallax effect for floating shapes
-        window.addEventListener('scroll', function() {
+        window.addEventListener('scroll', function () {
             const scrolled = window.pageYOffset;
             const shapes = document.querySelectorAll('.shape');
-            
+
             shapes.forEach((shape, index) => {
                 const speed = (index + 1) * 0.5;
                 shape.style.transform = `translateY(${scrolled * speed}px) rotate(${scrolled * 0.1}deg)`;
@@ -535,7 +567,7 @@
             rootMargin: '0px 0px -50px 0px'
         };
 
-        const observer = new IntersectionObserver(function(entries) {
+        const observer = new IntersectionObserver(function (entries) {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
@@ -553,4 +585,5 @@
         });
     </script>
 </body>
+
 </html>
