@@ -1,3 +1,21 @@
+@font-face {
+    font-family: "pop";
+    src: url(./Poppins-Medium.ttf);
+}
+
+@font-face {
+    font-family: "carto";
+    src: url(./Citizen\ Carto.otf);
+}
+
+.pop {
+    font-family: "pop";
+}
+
+.carto {
+    font-family: "carto";
+}
+
         * {
             margin: 0;
             padding: 0;
