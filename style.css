@@ -30,6 +30,7 @@ body {
   overflow-x: hidden;
 }
 
+
 /* HERO */
 .hero {
   min-height: 100vh;
@@ -288,7 +289,7 @@ body {
 
 /* UNIVERSAL IMG FIX */
 img {
-  max-width: 100%;
+  max-width: min(100%, 512px);
   height: auto;
   display: block;
 }
