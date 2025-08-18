@@ -250,6 +250,12 @@ body {
   transform: translateY(-5px);
 }
 
+#contact {
+    width:100%;
+    display:flex;
+    justify-content: center;
+}
+
 /* CONTACT */
 .contact-info {
   display: flex;
