@@ -47,7 +47,7 @@ body {
   font-weight: 300;
   letter-spacing: 3px;
   margin-bottom: 1rem;
-  background: linear-gradient(45deg, #ff6b35, #f7931e, #ffd23f);
+  background: linear-gradient(45deg, rgb(148, 206, 60), rgb(148, 206, 60), rgb(148, 206, 60));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -55,7 +55,7 @@ body {
 
 .hero .subtitle {
   font-size: 1.5rem;
-  color: #cccccc;
+  color: #ffffff;
   margin-bottom: 2rem;
   font-weight: 300;
 }
@@ -63,7 +63,7 @@ body {
 /* CTA */
 .cta-button {
   padding: 15px 40px;
-  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  background: rgb(148, 206, 60);
   border: none;
   border-radius: 50px;
   color: white;
@@ -73,12 +73,10 @@ body {
   text-decoration: none;
   display: inline-block;
   font-weight: 500;
-  box-shadow: 0 10px 30px rgba(255, 107, 53, 0.3);
 }
 
 .cta-button:hover {
   transform: translateY(-3px);
-  box-shadow: 0 15px 40px rgba(255, 107, 53, 0.4);
 }
 
 /* NAV */
@@ -102,7 +100,7 @@ body {
 }
 
 .nav a:hover {
-  color: #ff6b35;
+  color: rgb(148, 206, 60) ;
 }
 
 .nav a::after {
@@ -112,7 +110,7 @@ body {
   height: 2px;
   bottom: -5px;
   left: 0;
-  background: #ff6b35;
+  background:  rgb(148, 206, 60);
   transition: width 0.3s ease;
 }
 
@@ -162,7 +160,6 @@ body {
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 9;
-  background: linear-gradient(45deg, #2a2a2a, #404040);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -185,7 +182,7 @@ body {
 .project-info h3 {
   font-size: 1.6rem;
   margin-bottom: 10px;
-  color: #ff6b35;
+  color:  rgb(148, 206, 60);
   font-weight: 400;
 }
 
@@ -204,11 +201,10 @@ body {
 
 .tag {
   padding: 5px 12px;
-  background: rgba(255, 107, 53, 0.2);
   border-radius: 20px;
   font-size: 0.8rem;
-  color: #ff6b35;
-  border: 1px solid rgba(255, 107, 53, 0.3);
+  color:  rgb(148, 206, 60);
+  border: 1px solid  rgb(148, 206, 60);
 }
 
 /* ABOUT */
@@ -237,19 +233,14 @@ body {
 
 .skill {
   padding: 12px 25px;
-  background: linear-gradient(45deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
   border-radius: 30px;
-  border: 2px solid rgba(255, 107, 53, 0.3);
-  color: #ff6b35;
+  border: 2px solid  rgb(148, 206, 60);
+  color:  rgb(148, 206, 60);
   font-weight: 500;
   transition: all 0.3s ease;
   font-size: 0.9rem;
 }
 
-.skill:hover {
-  background: linear-gradient(45deg, rgba(255, 107, 53, 0.2), rgba(247, 147, 30, 0.2));
-  transform: translateY(-5px);
-}
 
 #contact {
     width:100%;
@@ -277,7 +268,7 @@ body {
 .contact-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(45deg, #ff6b35, #f7931e);
+  background: rgb(148, 206, 60);
   border-radius: 50%;
   display: flex;
   align-items: center;
