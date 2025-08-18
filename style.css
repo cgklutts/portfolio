@@ -1,19 +1,19 @@
 @font-face {
-  font-family: "pop";
-  src: url(./Poppins-Medium.ttf);
+  font-family: "thin";
+  src: url(./NotoSans-Regular.ttf);
 }
 
 @font-face {
-  font-family: "carto";
-  src: url(./Citizen\ Carto.otf);
+  font-family: "thick";
+  src: url(./NotoSans-Bold.ttf);
 }
 
-.pop {
-  font-family: "pop";
+.thin {
+  font-family: "thin";
 }
 
-.carto {
-  font-family: "carto";
+.thick {
+  font-family: "thick";
 }
 
 * {
